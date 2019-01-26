@@ -1,0 +1,1270 @@
+{
+  "contractName": "StructLib",
+  "abi": [],
+  "bytecode": "0x604c602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f30073000000000000000000000000000000000000000030146080604052600080fd00a165627a7a7230582008b3b0794eda2941dd2b11cdc47425fb55ed396bb717ecab13d23ca2e60a61e40029",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fd00a165627a7a7230582008b3b0794eda2941dd2b11cdc47425fb55ed396bb717ecab13d23ca2e60a61e40029",
+  "sourceMap": "26:1439:7:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
+  "deployedSourceMap": "26:1439:7:-;;;;;;;;",
+  "source": "pragma solidity ^0.4.24;\n\nlibrary StructLib{\n    struct Data { mapping(uint => Fund) list; }\n\n    struct Fund {\n        //Fund Number\n        uint fundNum;\n        //Name of fund\n        bytes32 name;\n        //Partner who Initialized the strategy\n        //Could be a multisig wallet\n        address fundOwner;\n        //amount of funds the strategy is virtually managing\n        uint totalCapital;\n        //Keep track of available capital\n        uint capitalDeployed;\n        //Add fee that quant can set- in whole number, i.e. 2% is represented as 2\n        uint feeRate;\n        //Number of days in Payment Cycle\n        uint paymentCycle;\n        //maps investors to investment status- current investors return true, non-investors return false\n        mapping (address => bool) investors;\n        //maps investors to their virtual balances in the strategy\n        mapping (address => uint) virtualBalances;\n        //maps investors to the actual fee they have stored in the Strategy Hub contract\n        //fees are paid into stratOwner fee account and paid from investor fee account\n        mapping (address => uint) fees;\n        //Adoption Times for each investor\n        mapping(address => uint) paymentCycleStart;\n        //Boolean representing whether fund is in fundraising period\n        bool fundraising;\n        //Boolean representing whether fund is closed\n        bool closed;\n        //will need to add IPFS hash eventually to verify code\n    }\n}",
+  "sourcePath": "/home/bryherbz/Documents/final-project-bryanherbert/contracts/StructLib.sol",
+  "ast": {
+    "absolutePath": "/home/bryherbz/Documents/final-project-bryanherbert/contracts/StructLib.sol",
+    "exportedSymbols": {
+      "StructLib": [
+        1388
+      ]
+    },
+    "id": 1389,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1347,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:7"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1388,
+        "linearizedBaseContracts": [
+          1388
+        ],
+        "name": "StructLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "StructLib.Data",
+            "id": 1352,
+            "members": [
+              {
+                "constant": false,
+                "id": 1351,
+                "name": "list",
+                "nodeType": "VariableDeclaration",
+                "scope": 1352,
+                "src": "63:26:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Fund_$1387_storage_$",
+                  "typeString": "mapping(uint256 => struct StructLib.Fund)"
+                },
+                "typeName": {
+                  "id": 1350,
+                  "keyType": {
+                    "id": 1348,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "71:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "63:21:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Fund_$1387_storage_$",
+                    "typeString": "mapping(uint256 => struct StructLib.Fund)"
+                  },
+                  "valueType": {
+                    "contractScope": null,
+                    "id": 1349,
+                    "name": "Fund",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1387,
+                    "src": "79:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Fund_$1387_storage_ptr",
+                      "typeString": "struct StructLib.Fund"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Data",
+            "nodeType": "StructDefinition",
+            "scope": 1388,
+            "src": "49:43:7",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "StructLib.Fund",
+            "id": 1387,
+            "members": [
+              {
+                "constant": false,
+                "id": 1354,
+                "name": "fundNum",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "142:12:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1353,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "142:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1356,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "187:12:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 1355,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "187:7:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1358,
+                "name": "fundOwner",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "293:17:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1357,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "293:7:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1360,
+                "name": "totalCapital",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "381:17:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1359,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "381:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1362,
+                "name": "capitalDeployed",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "450:20:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1361,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "450:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1364,
+                "name": "feeRate",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "563:12:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1363,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "563:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1366,
+                "name": "paymentCycle",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "627:17:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1365,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "627:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1370,
+                "name": "investors",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "759:35:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                  "typeString": "mapping(address => bool)"
+                },
+                "typeName": {
+                  "id": 1369,
+                  "keyType": {
+                    "id": 1367,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "768:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "759:25:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                    "typeString": "mapping(address => bool)"
+                  },
+                  "valueType": {
+                    "id": 1368,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "779:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1374,
+                "name": "virtualBalances",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "871:41:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "typeName": {
+                  "id": 1373,
+                  "keyType": {
+                    "id": 1371,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "880:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "871:25:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                    "typeString": "mapping(address => uint256)"
+                  },
+                  "valueType": {
+                    "id": 1372,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "891:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1378,
+                "name": "fees",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "1098:30:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "typeName": {
+                  "id": 1377,
+                  "keyType": {
+                    "id": 1375,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1107:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "1098:25:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                    "typeString": "mapping(address => uint256)"
+                  },
+                  "valueType": {
+                    "id": 1376,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1118:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1382,
+                "name": "paymentCycleStart",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "1181:42:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "typeName": {
+                  "id": 1381,
+                  "keyType": {
+                    "id": 1379,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1189:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "1181:24:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                    "typeString": "mapping(address => uint256)"
+                  },
+                  "valueType": {
+                    "id": 1380,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1200:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1384,
+                "name": "fundraising",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "1302:16:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1383,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1302:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1386,
+                "name": "closed",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "1382:11:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1385,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1382:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Fund",
+            "nodeType": "StructDefinition",
+            "scope": 1388,
+            "src": "98:1365:7",
+            "visibility": "public"
+          }
+        ],
+        "scope": 1389,
+        "src": "26:1439:7"
+      }
+    ],
+    "src": "0:1465:7"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/bryherbz/Documents/final-project-bryanherbert/contracts/StructLib.sol",
+    "exportedSymbols": {
+      "StructLib": [
+        1388
+      ]
+    },
+    "id": 1389,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1347,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:7"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1388,
+        "linearizedBaseContracts": [
+          1388
+        ],
+        "name": "StructLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "StructLib.Data",
+            "id": 1352,
+            "members": [
+              {
+                "constant": false,
+                "id": 1351,
+                "name": "list",
+                "nodeType": "VariableDeclaration",
+                "scope": 1352,
+                "src": "63:26:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Fund_$1387_storage_$",
+                  "typeString": "mapping(uint256 => struct StructLib.Fund)"
+                },
+                "typeName": {
+                  "id": 1350,
+                  "keyType": {
+                    "id": 1348,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "71:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "63:21:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Fund_$1387_storage_$",
+                    "typeString": "mapping(uint256 => struct StructLib.Fund)"
+                  },
+                  "valueType": {
+                    "contractScope": null,
+                    "id": 1349,
+                    "name": "Fund",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1387,
+                    "src": "79:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Fund_$1387_storage_ptr",
+                      "typeString": "struct StructLib.Fund"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Data",
+            "nodeType": "StructDefinition",
+            "scope": 1388,
+            "src": "49:43:7",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "StructLib.Fund",
+            "id": 1387,
+            "members": [
+              {
+                "constant": false,
+                "id": 1354,
+                "name": "fundNum",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "142:12:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1353,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "142:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1356,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "187:12:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 1355,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "187:7:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1358,
+                "name": "fundOwner",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "293:17:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1357,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "293:7:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1360,
+                "name": "totalCapital",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "381:17:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1359,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "381:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1362,
+                "name": "capitalDeployed",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "450:20:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1361,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "450:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1364,
+                "name": "feeRate",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "563:12:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1363,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "563:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1366,
+                "name": "paymentCycle",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "627:17:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1365,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "627:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1370,
+                "name": "investors",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "759:35:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                  "typeString": "mapping(address => bool)"
+                },
+                "typeName": {
+                  "id": 1369,
+                  "keyType": {
+                    "id": 1367,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "768:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "759:25:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                    "typeString": "mapping(address => bool)"
+                  },
+                  "valueType": {
+                    "id": 1368,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "779:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1374,
+                "name": "virtualBalances",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "871:41:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "typeName": {
+                  "id": 1373,
+                  "keyType": {
+                    "id": 1371,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "880:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "871:25:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                    "typeString": "mapping(address => uint256)"
+                  },
+                  "valueType": {
+                    "id": 1372,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "891:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1378,
+                "name": "fees",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "1098:30:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "typeName": {
+                  "id": 1377,
+                  "keyType": {
+                    "id": 1375,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1107:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "1098:25:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                    "typeString": "mapping(address => uint256)"
+                  },
+                  "valueType": {
+                    "id": 1376,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1118:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1382,
+                "name": "paymentCycleStart",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "1181:42:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "typeName": {
+                  "id": 1381,
+                  "keyType": {
+                    "id": 1379,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1189:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "1181:24:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                    "typeString": "mapping(address => uint256)"
+                  },
+                  "valueType": {
+                    "id": 1380,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1200:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1384,
+                "name": "fundraising",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "1302:16:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1383,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1302:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1386,
+                "name": "closed",
+                "nodeType": "VariableDeclaration",
+                "scope": 1387,
+                "src": "1382:11:7",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1385,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1382:4:7",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Fund",
+            "nodeType": "StructDefinition",
+            "scope": 1388,
+            "src": "98:1365:7",
+            "visibility": "public"
+          }
+        ],
+        "scope": 1389,
+        "src": "26:1439:7"
+      }
+    ],
+    "src": "0:1465:7"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {
+    "1546033668843": {
+      "events": {},
+      "links": {},
+      "address": "0x9f96bf2b2f4b69e79e1f65c89019bb2d979480a8",
+      "transactionHash": "0xc2051740bd6a3bd331069c6bf3420bf2e1ae60196c5dc079f6fb55002bc8eaf5"
+    },
+    "1546446680017": {
+      "events": {},
+      "links": {},
+      "address": "0x1dfa21c74f248ef4ef0f67093cb438cf196b1dac",
+      "transactionHash": "0x15176bb7ddb3ae49eb434bb3f9535f5000d9d46cf061da15438e18845047b870"
+    },
+    "1547051632533": {
+      "events": {},
+      "links": {},
+      "address": "0xc9709cc50703bcf1f6d95559950b59abae737d82",
+      "transactionHash": "0x49132bf04e0f2f8edc9ceab6441ee52ffff7cda3b5ce160cd61dc423f9c60845"
+    },
+    "1547052986853": {
+      "events": {},
+      "links": {},
+      "address": "0x0403b8d8f5c677bd7eee1f9288b783f962a9638d",
+      "transactionHash": "0x49132bf04e0f2f8edc9ceab6441ee52ffff7cda3b5ce160cd61dc423f9c60845"
+    },
+    "1547067821125": {
+      "events": {},
+      "links": {},
+      "address": "0x886ba7dd76e16a580684dd8d488f09873e3c2021",
+      "transactionHash": "0x49132bf04e0f2f8edc9ceab6441ee52ffff7cda3b5ce160cd61dc423f9c60845"
+    },
+    "1547070889209": {
+      "events": {},
+      "links": {},
+      "address": "0x1019cdcdfb162e29448b733a1acc810eaaa7cb88",
+      "transactionHash": "0x49132bf04e0f2f8edc9ceab6441ee52ffff7cda3b5ce160cd61dc423f9c60845"
+    },
+    "1547071783551": {
+      "events": {},
+      "links": {},
+      "address": "0x4541043cc87fe3d48826b04bd3cc23a11f950815",
+      "transactionHash": "0x70f7724ddbd3eaac7111ea2526c04ded5213f22871acf1633114239619fdb07c"
+    },
+    "1547087208076": {
+      "events": {},
+      "links": {},
+      "address": "0x2ba763f0fbabdb8e4cf08245f886ffd746baa051",
+      "transactionHash": "0x83ae9d348143189fcbf884cbbd1951cac8c9e1afb5dffd30d51c383c502d0c70"
+    },
+    "1547102038082": {
+      "events": {},
+      "links": {},
+      "address": "0xbd0be651a73361d40540ef5bf727a65a95573a09",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1547102525212": {
+      "events": {},
+      "links": {},
+      "address": "0xfadc95f6e45a3bf0d7e089d9c563e12cb8f9987c",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1547104700237": {
+      "events": {},
+      "links": {},
+      "address": "0x36d2574dac6d634a0e7e7e3ad45b44067e576405",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1547323929981": {
+      "events": {},
+      "links": {},
+      "address": "0xea8513e515eeeb93727f7fda238a648d85348b1f",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1547661414843": {
+      "events": {},
+      "links": {},
+      "address": "0x3445420230ae66bda8005dd59b31dee9c8b29b1e",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1547671618122": {
+      "events": {},
+      "links": {},
+      "address": "0x42734465d51e1af682a8d2299755ae2830913ade",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1547821055370": {
+      "events": {},
+      "links": {},
+      "address": "0x1081ad117ad8350b4b55e641beeceaa7dc7619e9",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1548180409741": {
+      "events": {},
+      "links": {},
+      "address": "0x6eaf15e85377d100d68b539e27caa507ac8ea9da",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1548196394799": {
+      "events": {},
+      "links": {},
+      "address": "0xfb388a28f6b8932c4f8f8b0784f3ae29041b1782",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1548200297707": {
+      "events": {},
+      "links": {},
+      "address": "0x8f4e6230983180e15d2e5ddb33feaee71abe57f6",
+      "transactionHash": "0x4bcecdedaf21c81aba7509f6dfe50909e2721bc8d4cf92bf4e5cf7768ea57d71"
+    },
+    "1548212228610": {
+      "events": {},
+      "links": {},
+      "address": "0xcaf3bafbd0f35978dfff02ce98ca7ad8c3a93bff",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1548228307407": {
+      "events": {},
+      "links": {},
+      "address": "0xd190e3795661412fda139f61321d11fd92ab32fc",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1548260020132": {
+      "events": {},
+      "links": {},
+      "address": "0x9d06e5fde252568ed43f2f265ea25abc8aa11496",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1548396941062": {
+      "events": {},
+      "links": {},
+      "address": "0x7e03f2154e86c2865de65b3548e930cb5978d947",
+      "transactionHash": "0x898a58aab43bf10f27e878129cb152ae91810f0cac673de1160e9fac7b6b5398"
+    },
+    "1548397657216": {
+      "events": {},
+      "links": {},
+      "address": "0xe6e9eafbc7e9cca3aa76f10b6a6a84a9f3001ec3",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1548398138470": {
+      "events": {},
+      "links": {},
+      "address": "0x9e8425a29c97b68d8f5fa071e9ba4168c7dc15af",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1548398275583": {
+      "events": {},
+      "links": {},
+      "address": "0xf8784d9363b6a10f2fb1cd2faa5e363ea71b24d2",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1548398702260": {
+      "events": {},
+      "links": {},
+      "address": "0x5156fde39c8cc230620402972a8c0c8b58f84d0a",
+      "transactionHash": "0x178f5f173361924e8557bd5fa16e9f1cebbf25c0df19e9f1d4b3028a4947881d"
+    },
+    "1548399670311": {
+      "events": {},
+      "links": {},
+      "address": "0xa6d91f87e53d7d2d278d864e4b2eadec2359f9c1",
+      "transactionHash": "0xca803ab29ec5c6ce8727f9115c3ca79a49f14ca8bd2771dc0ac496129f7fdb66"
+    },
+    "1548400722697": {
+      "events": {},
+      "links": {},
+      "address": "0xb24dde351dc38b94f494308584fd020f161d1925",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1548402452273": {
+      "events": {},
+      "links": {},
+      "address": "0xda4219360ce7bb5d66fdcfb5f02eabacc2af3bf9",
+      "transactionHash": "0x32e5883c85543c2525719839359367dfe9445874fb38fb972715b5c9fe6b9617"
+    },
+    "1548403866629": {
+      "events": {},
+      "links": {},
+      "address": "0x5130033e3b5394891d86a8bff7587ae5642d3c09",
+      "transactionHash": "0x83fa79cbe07fc056bf1e9705789771ead13399e2cded7b9137567e2a82481481"
+    },
+    "1548406603648": {
+      "events": {},
+      "links": {},
+      "address": "0x87d61d0e05881b662e2e4eadb8045770f5299c10",
+      "transactionHash": "0xc886b9ccb932221f4ddd994a66e1294516b81e7ba0d9fdb388306327a5a8f863"
+    },
+    "1548441715040": {
+      "events": {},
+      "links": {},
+      "address": "0xf7b1e9055d1ff5cdf6a631f96db8ba45bc4f49b7",
+      "transactionHash": "0x224eff9dc429e6a4cac4bbd6578b67676e8adabc45c746e5ab1892e65636658b"
+    },
+    "1548456006735": {
+      "events": {},
+      "links": {},
+      "address": "0xe8d39568e2816986e53dab81e22131e0c815519d",
+      "transactionHash": "0xdca8ee6cca2ab9515bda78091d135de20e1bdd4fbd86f8b5e9c2d8750cb240db"
+    },
+    "1548473270712": {
+      "events": {},
+      "links": {},
+      "address": "0x101d95a11ab287b7b90e935d89b70c093959ad8e",
+      "transactionHash": "0x72e85362c2528e7bada0148601b8aad916433997e6f6cc864e13379fbefa21fc"
+    }
+  },
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2019-01-26T04:43:59.229Z"
+}
