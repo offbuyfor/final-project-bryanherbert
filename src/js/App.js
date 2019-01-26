@@ -26,7 +26,7 @@ class Fund extends React.Component {
     });
   }
 
-  handleInvestClick= async(event) => {
+  handleInvestClick = async(event) => {
     event.preventDefault();
     const { investmentAmount } = this.state;
     const investment = this.props.web3.utils.toWei(investmentAmount.toString(), "ether");
